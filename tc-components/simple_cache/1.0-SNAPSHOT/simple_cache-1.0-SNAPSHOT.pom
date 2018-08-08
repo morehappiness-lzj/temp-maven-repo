@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+
+ <parent>
+  <groupId>tc-components</groupId>
+  <artifactId>components</artifactId>
+  <version>1.0-SNAPSHOT</version>
+ </parent>
+ <groupId>tc-components</groupId>
+ <artifactId>simple_cache</artifactId>
+ <version>1.0-SNAPSHOT</version>
+
+ <properties>
+  <maven.compiler.source>1.5</maven.compiler.source>
+  <maven.compiler.target>1.5</maven.compiler.target>
+ </properties>
+
+ <dependencies>
+  <dependency>
+   <groupId>tc-components</groupId>
+   <artifactId>topcoder_common_utility</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  </dependency>
+  <dependency>
+   <groupId>tc-components</groupId>
+   <artifactId>compression_utility</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  </dependency>
+  <dependency>
+   <groupId>tc-components</groupId>
+   <artifactId>configuration_manager</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  </dependency>
+  <dependency>
+   <groupId>tc-components</groupId>
+   <artifactId>memory_usage</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  </dependency>
+ </dependencies>
+ <repositories>
+  <repository>
+   <id>central</id>
+   <name>Maven Repository Switchboard</name>
+   <url>http://repo1.maven.org/maven2</url>
+   <snapshots>
+    <enabled>false</enabled>
+   </snapshots>
+  </repository>
+  <repository>
+   <id>Appirio Technology Maven Repository</id>
+   <url>http://maven.appirio.net:8080/</url>
+   <snapshots>
+    <updatePolicy>always</updatePolicy>
+   </snapshots>
+   <releases>
+    <updatePolicy>always</updatePolicy>
+   </releases>
+  </repository>
+ </repositories>
+ <build>
+  <plugins>
+   <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>cobertura-maven-plugin</artifactId>
+    <version>2.5.2</version>
+    <configuration>
+     <formats>
+      <format>xml</format>
+      <format>html</format>
+     </formats>
+     <instrumentation>
+      <includes>
+       <include>com/topcoder/**/*.class</include>
+      </includes>
+     </instrumentation>
+    </configuration>
+    <executions>
+     <execution>
+      <phase>package</phase>
+      <goals>
+       <goal>cobertura</goal>
+      </goals>
+     </execution>
+    </executions>
+   </plugin>
+  </plugins>
+ </build>
+</project>
